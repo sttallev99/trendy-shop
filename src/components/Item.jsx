@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { FaMinus, FaPlus } from 'react-icons/fa6'
 import { Link } from 'react-router-dom'
+import { ShopContext } from '../context/ShopContext'
 
 const Item = ({product}) => {
-  const [cartItems, setCartItems] = useState(false)
+  const {cartItems, addToCart, removeFromCart} = useContext(ShopContext)
   return (
     <div>
       <Link to={''} className='relative top-32 group bg-white flexCenter m-4 rounded-2xl ring-1 ring-slate-200/20 hover:shadow-sm'>
@@ -16,13 +17,13 @@ const Item = ({product}) => {
         <div className='flexBetween mt-3'>
           <div className='text-secondary bold-18'>${product.price}</div>
           <div>
-            {!cartItems ? (
-              <FaPlus className='bg-white h-8 w-8 p-2 rounded-full shadow-inner cursor-pointer'/>
+            {!cartItems[product._id] ? (
+              <FaPlus onClick={() => addToCart(product._id)} className='bg-white h-8 w-8 p-2 rounded-full shadow-inner cursor-pointer'/>
               ) : (
               <div className='bg-white rounded-full flexCenter gap-2 h-8'>
-                <FaMinus className='bg-primary h-6 w-6 p-1 ml-1 cursor-pointer rounded-full'/>
-                <p>0</p>
-                <FaPlus className='bg-primary h-6 w-6 p-1 mr-1 cursor-pointer rounded-full'/>
+                <FaMinus onClick={() => removeFromCart(product._id)} className='bg-primary h-6 w-6 p-1 ml-1 cursor-pointer rounded-full'/>
+                <p>{cartItems[product._id]}</p>
+                <FaPlus onClick={() => addToCart(product._id)} className='bg-primary h-6 w-6 p-1 mr-1 cursor-pointer rounded-full'/>
               </div>
               )}
           </div>
