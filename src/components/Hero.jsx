@@ -5,7 +5,7 @@ import { FaArrowRight } from 'react-icons/fa6'
 
 const Hero = () => {
   return (
-    <section className='max-padd-container bg-hero bg-center bg-cover bg-no-repeat h-[777px] w-full'>
+    <section id='home' className='max-padd-container bg-hero bg-center bg-cover bg-no-repeat h-[777px] w-full'>
       <div className='relative max-w-[666px] top-44 xs:top-72'>
         <h4 className='flex items-baseline gap-x-2 uppercase text-secondary medium-18'>Modern collection <BsFire /></h4>
         <h2 className='h1 capitalize'>Grab Upto 50% Off on Selected Products</h2>
