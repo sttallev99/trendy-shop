@@ -2,7 +2,7 @@ import React from 'react'
 import {LiaShippingFastSolid} from 'react-icons/lia'
 import {MdCurrencyExchange} from 'react-icons/md'
 import {BiSupport} from 'react-icons/bi'
-import {TbPackageImport} from 'react-icons/tb'
+import { FaBoxOpen } from "react-icons/fa6";
 
 const Features = () => {
   return (
@@ -18,22 +18,22 @@ const Features = () => {
         <div className='flexCenter gap-x-4'>
           <MdCurrencyExchange className="text-4xl"/>
           <div>
-            <h5 className='medium-18'>Free Shipping</h5>
-            <p>On above $100 order</p>
+            <h5 className='medium-18'>Exchange & Returns</h5>
+            <p>Cancel your order or exchange ourchased products.</p>
           </div>
         </div>
         <div className='flexCenter gap-x-4'>
           <BiSupport className="text-4xl"/>
           <div>
-            <h5 className='medium-18'>Free Shipping</h5>
-            <p>On above $100 order</p>
+            <h5 className='medium-18'>Need help?</h5>
+            <p>Contact us at: xxxxxxx</p>
           </div>
         </div>
         <div className='flexCenter gap-x-4'>
-          <TbPackageImport className="text-4xl"/>
+          <FaBoxOpen className="text-4xl"/>
           <div>
-            <h5 className='medium-18'>Free Shipping</h5>
-            <p>On above $100 order</p>
+            <h5 className='medium-18'>Preview and test</h5>
+            <p>Before Payment</p>
           </div>
         </div>
       </div>
