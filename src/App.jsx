@@ -6,6 +6,7 @@ import Cart from "./pages/Cart";
 import Order from "./pages/Order";
 import Verify from "./pages/Verify";
 import MyOrders from "./pages/MyOrders";
+import Footer from "./components/Footer";
 
 export default function App() {
   return (
@@ -19,9 +20,9 @@ export default function App() {
       <Route path="/cart" element={<Cart />}/>
       <Route path="/order" element={<Order />} />
       <Route  path="/verify" element={<Verify />}/>
-      <Route path="/myorders" element={<MyOrders />} />
-
+      <Route path="/myorders" element={<MyOrders />} /> 
     </Routes>
+    <Footer />
     </BrowserRouter>
   )
 }
