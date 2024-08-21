@@ -7,7 +7,7 @@ const Item = ({product}) => {
   const {cartItems, addToCart, removeFromCart} = useContext(ShopContext)
   return (
     <div>
-      <Link to={''} className='relative top-32 group bg-white flexCenter m-4 rounded-2xl ring-1 ring-slate-200/20 hover:shadow-sm'>
+      <Link to={`/product/${product._id}`} className='relative top-32 group bg-white flexCenter m-4 rounded-2xl ring-1 ring-slate-200/20 hover:shadow-sm'>
         <img src={product.image} alt="productImg" height={122} width={122} className='object-cover h-38'/>
       </Link>
       <div className='p-3 pt-28 bg-primary rounded-xl'>
