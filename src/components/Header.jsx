@@ -8,10 +8,10 @@ import {FaCircleUser} from "react-icons/fa6"
 import {FiPackage} from "react-icons/fi"
 import {TbLogout} from "react-icons/tb"
 
-const Header = () => {
+const Header = ({setShowLogin}) => {
   const [menuOpened, setMenuOpened] = useState(false)
   const [header, setHeader] = useState(false)
-  const [token, setToken] = useState(true)
+  const [token, setToken] = useState(false)
 
   const toggleMenu = () => {
     setMenuOpened(!menuOpened)
@@ -49,7 +49,7 @@ const Header = () => {
             <span className='bg-white text-sm absolute -top-2 -right-3 flexCenter w-5 rounded-full shadow-md'>0</span>
           </Link>
           {!token ? (
-            <button className='btn-outline rounded-full'>
+            <button onClick={() => setShowLogin(true)} className='btn-outline rounded-full'>
               Login
             </button>
             ) : (

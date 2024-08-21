@@ -7,11 +7,16 @@ import Order from "./pages/Order";
 import Verify from "./pages/Verify";
 import MyOrders from "./pages/MyOrders";
 import Footer from "./components/Footer";
+import { useState } from "react";
+import { LoginPopup } from "./components/LoginPopup";
 
 export default function App() {
+  const [showLogin, setShowLogin] = useState(false)
+
   return (
     <BrowserRouter>
-    <Header />
+    {showLogin ? <LoginPopup setShowLogin={setShowLogin}/> : <></>}
+    <Header setShowLogin={setShowLogin}/>
     <Routes>
       <Route path="/"  element={<Home />}/>,
       <Route path="/product" element={<Product />}>
