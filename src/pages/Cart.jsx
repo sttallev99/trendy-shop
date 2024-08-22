@@ -72,6 +72,13 @@ const Cart = () => {
               Proceed to Checkout
               </button>
             </div>
+            <div className='flex flex-1 flex-col gap-2'>
+              <p className='text-black bold-22 mb-2'>Your coupon code enter here:</p>
+              <div className='flex flex-row w-[70%]'>
+                <input type="text" name='couponCode' placeholder='Coupon code' className='bg-primary border p-2 pl-4 outline-none flex-1'/>
+                <button className='text-white bg-black p-2 pl-4 pr-4 cursor-pointer'>Submit</button>
+              </div>
+            </div>
         </div>
       </div>
     </section>
