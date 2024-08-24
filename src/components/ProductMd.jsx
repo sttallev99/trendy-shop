@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 export const ProductMd = (props) => {
     const { product } = props;
-    const { addToCart, removeFromCart, cartItems } = useContext(ShopContext)
+    const { addToCart, removeFromCart, cartItems, url } = useContext(ShopContext)
     const navigate = useNavigate()
   return (
     <section className='max-padd-container flex flex-col gap-8 xl:flex-row bg-primary py-4'>
@@ -14,29 +14,29 @@ export const ProductMd = (props) => {
         <div className='flex gap-x-2 xl:flex-1 py-5'>
             <div className='flexCenter flex-col gap-[7px] flex-wrap'>
                 <img 
-                    src={product.image} 
+                    src={url+"/images/"+product.image} 
                     alt="productImg" 
                     className='max-h-[89px] rounded-lg bg-gray-10 object-cover'
                 />
                 <img 
-                    src={product.image} 
+                    src={url+"/images/"+product.image} 
                     alt="productImg" 
                     className='max-h-[89px] rounded-lg bg-gray-10 object-cover'
                 />
                 <img 
-                    src={product.image} 
+                    src={url+"/images/"+product.image} 
                     alt="productImg" 
                     className='max-h-[89px] rounded-lg bg-gray-10 object-cover'
                 />
                 <img 
-                    src={product.image} 
+                    src={url+"/images/"+product.image} 
                     alt="productImg" 
                     className='max-h-[89px] rounded-lg bg-gray-10 object-cover'
                 />
             </div>
             <div className='max-h-[377px] w-auto flex'>
                 <img 
-                    src={product.image} 
+                    src={url+"/images/"+product.image} 
                     alt="bigImg" 
                     className='rounded-xl bg-gray-10 object-cover'
                 />
