@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useContext, useEffect, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import logo from '../assets/logo.svg'
 import Navbar from './Navbar'
 import { MdMenu, MdClose } from "react-icons/md"
@@ -7,15 +7,24 @@ import {GiShoppingBag} from "react-icons/gi"
 import {FaCircleUser} from "react-icons/fa6"
 import {FiPackage} from "react-icons/fi"
 import {TbLogout} from "react-icons/tb"
+import { ShopContext } from '../context/ShopContext'
 
 const Header = ({setShowLogin}) => {
+  const {getTotalCartItems, token, setToken} = useContext(ShopContext);
+
   const [menuOpened, setMenuOpened] = useState(false)
   const [header, setHeader] = useState(false)
-  const [token, setToken] = useState(false)
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setMenuOpened(!menuOpened)
   }
+
+  const logout = () => {
+    localStorage.removeItem("token")
+    setToken("");
+    navigate('/')
+  };
 
   useEffect(() => {
     const scrollYPos = window.addEventListener("scroll", ()=> {
@@ -46,7 +55,7 @@ const Header = ({setShowLogin}) => {
           }
           <Link to={"/cart"} className='flex relative'>
             <GiShoppingBag className='text-[22px] text-white bg-secondary h-9 w-9 p-2 rounded-xl'/>
-            <span className='bg-white text-sm absolute -top-2 -right-3 flexCenter w-5 rounded-full shadow-md'>0</span>
+            <span className='bg-white text-sm absolute -top-2 -right-3 flexCenter w-5 rounded-full shadow-md'>{getTotalCartItems()}</span>
           </Link>
           {!token ? (
             <button onClick={() => setShowLogin(true)} className='btn-outline rounded-full'>
@@ -62,7 +71,7 @@ const Header = ({setShowLogin}) => {
                   <p>Orders</p>
                 </li>
                 <hr className='my-2'/>
-                <li className='flexCenter gap-x-2 cursor-pointer'>
+                <li onClick={logout} className='flexCenter gap-x-2 cursor-pointer'>
                   <TbLogout className='text-[19px]'/>
                   <p>Logout</p>
                 </li>

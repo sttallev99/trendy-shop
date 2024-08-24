@@ -6,6 +6,9 @@ export const ShopContext = createContext(null)
 
 const ShopContextProvider = (props) => {
     const [cartItems, setCartItems] = useState({})
+    const url = 'http://localhost:4000';
+    const [token, setToken] = useState("");
+
     const addToCart = async (itemId) => {
         if(!cartItems[itemId]){
             setCartItems((prev) =>({...prev, [itemId]:1}))
@@ -30,11 +33,32 @@ const ShopContextProvider = (props) => {
         return totalAmout
     }
 
-    useEffect(() => {
-        console.log(cartItems)
-    }, [cartItems])
+    const getTotalCartItems = () => {
+        let totalItems = 0;
+        for(const item in cartItems){
+            totalItems += cartItems[item];
+        }
+        return totalItems;
+    }
 
-    const contextValue = { all_products, cartItems, setCartItems, addToCart, removeFromCart, getTotalCartAmount }
+    useEffect(() => {
+        if(localStorage.getItem("token")){
+            setToken(localStorage.getItem("token"));
+        }
+    }, [])
+
+    const contextValue = { 
+        all_products, 
+        cartItems, 
+        setCartItems, 
+        addToCart, 
+        removeFromCart, 
+        getTotalCartAmount, 
+        url, 
+        token, 
+        setToken, 
+        getTotalCartItems 
+    }
 
   return (
     <ShopContext.Provider value={contextValue}>
