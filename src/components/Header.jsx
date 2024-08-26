@@ -64,7 +64,7 @@ const Header = ({setShowLogin}) => {
             ) : (
             <div className='group relative'>
               <FaCircleUser className='text-2xl'/>
-              <ul className='bg-primary shadow-sm p-3 w-24 ring-1 ring-slate-900/15 rounded absolute right-0 group-hover:flex \
+              <ul onClick={() => {navigate("/myorders")}} className='bg-primary shadow-sm p-3 w-24 ring-1 ring-slate-900/15 rounded absolute right-0 group-hover:flex \
               flex-col hidden'>
                 <li className='flexCenter gap-x-2 cursor-pointer'>
                   <FiPackage className='text-[19px]'/>
