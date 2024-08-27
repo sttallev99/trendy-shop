@@ -79,7 +79,7 @@ const Order = () => {
               type="text" 
               name='lastName'
               value={data.lastName}
-              placeholder='First Name' 
+              placeholder='Last Name' 
               className='ring-1 ring-slate-900/15 p-1 pl-3 rounded-sm outline-none w-1/2'
               required
             />

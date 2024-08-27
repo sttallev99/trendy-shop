@@ -14,7 +14,7 @@ const Categories = ({category, setCategory}) => {
         </h4>
       </div>
       {/*container*/}
-      <div className='flexStart gap-12 flex-wrap'>
+      <div className='flexStart gap-12 flex-wrap max-[640px]:flexCenter'>
         {categories.map((item) => (
           <div 
             onClick={() => setCategory((prev) => (prev===item.name ? "All" : item.name))} 
